@@ -34,7 +34,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   img: {
+    height: 100,
     width: '78.6667%',
+    // height: 
     resizeMode: 'contain'
   },
   txt: {

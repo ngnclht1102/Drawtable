@@ -21,6 +21,7 @@ export class Welcome extends React.PureComponent<WelcomeProps> {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" backgroundColor={colors.lightGray} />
+        <Image source={images.userDashboard2} />
         <Image source={images.logo} style={styles.img} />
         <Text style={styles.txt}>
           #athoughtfullworld - {'\n'}where mental health is as aspirational as

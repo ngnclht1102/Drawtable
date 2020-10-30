@@ -25,6 +25,16 @@ module.exports = {
         }
       },
       {
+        test: /\.(gif|jpe?g|png|svg)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            name: "[name].[ext]",
+            esModule: false,
+          }
+        }
+      },
+      {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {

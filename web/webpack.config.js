@@ -20,6 +20,17 @@ module.exports = {
         test: /\.(tsx|ts|jsx|js|mjs)$/,
         exclude: /node_modules/,
         loader: 'ts-loader',
+        options: {
+          reportFiles: ['!src/**'],
+        }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       },
     ],
   },
@@ -40,8 +51,20 @@ module.exports = {
       '.jsx',
       '.js',
     ], // read files in fillowing order
-    alias: Object.assign({
+    alias: {
       'react-native$': 'react-native-web',
-    }),
+      '@': path.resolve(
+        __dirname,
+        "../src"
+      ),
+      "react-native-code-push": path.resolve(
+        __dirname,
+        "../mocked_modules/react-native-code-push"
+      ),
+      "react-native-device-info": path.resolve(
+        __dirname,
+        "../mocked_modules/react-native-device-info"
+      ),
+    },
   },
 };

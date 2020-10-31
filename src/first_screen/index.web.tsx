@@ -1,22 +1,27 @@
-import React from 'react'
-import { View, Image, StatusBar, Text } from 'react-native'
-import DeviceInfo from 'react-native-device-info'
-import images from '@/assets/images'
-import colors from '@/configs/colors.config'
-import styles from './styles'
+import React from 'react';
+import {View, Image, StatusBar, Text} from 'react-native';
+import DeviceInfo from 'react-native-device-info';
+import images from '@/assets/images';
+import colors from '@/configs/colors.config';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as t from '@/actionTypes';
+import actions from '@/actions';
+import styles from './styles';
 
-interface WelcomeProps {}
+interface WelcomeProps {
+  act: any;
+}
 
 export class Welcome extends React.PureComponent<WelcomeProps> {
   state: any = {
     label: '',
     version: '',
-    description: ''
-  }
-  componentDidMount() {
-    console.log('kaka');
-    
-  }
+    description: '',
+  };
+
+  componentDidMount() {}
+
   render() {
     return (
       <View style={styles.container}>
@@ -33,12 +38,20 @@ export class Welcome extends React.PureComponent<WelcomeProps> {
             {this.state.label ? `${this.state.label}.` : ''}
             {DeviceInfo.getBuildNumber()}
           </Text>
-          
+
           {this.props.children}
         </View>
       </View>
-    )
+    );
   }
 }
 
-export default Welcome
+const mapDispatchToProps = (dispatch: any) => ({
+  act: bindActionCreators(actions, dispatch),
+});
+
+const mapStateToProps = (state: any) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

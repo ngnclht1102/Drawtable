@@ -1,6 +1,12 @@
 import React from 'react';
-import FirstScreen from '@/first_screen'
+import {Provider} from 'react-redux';
+import store from '@/configs/store.config';
+import FirstScreen from '@/first_screen/wrapper';
 
-const App = () => <FirstScreen />
+const App = () => (
+  <Provider store={store}>
+    <FirstScreen />
+  </Provider>
+);
 
-export default App
+export default App;

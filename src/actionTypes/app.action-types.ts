@@ -1,0 +1,10 @@
+export const GENERIC_ERROR = 'GENERIC_ERROR'
+export const NAVIGATE = 'Navigation/NAVIGATE'
+export const BACK = 'Navigation/BACK'
+export const COMPLETE_TRANSITION = 'Navigation/COMPLETE_TRANSITION'
+export const INIT_APP = 'INIT_APP'
+export const AUTHENTICATE_RESTART_APP = 'AUTHENTICATE_RESTART_APP'
+
+export const GET_APP_INFO_REQUEST = 'GET_APP_INFO_REQUEST'
+export const GET_APP_INFO_SUCCESS = 'GET_APP_INFO_SUCCESS'
+export const GET_APP_INFO_FAILED = 'GET_APP_INFO_FAILED'

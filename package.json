@@ -1,5 +1,5 @@
 {
-  "name": "TestRNWeb",
+  "name": "drawtable",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -27,6 +27,7 @@
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
     "@react-native-community/eslint-config": "^1.1.0",
+    "@types/lodash": "^4.14.165",
     "@types/react": "^16.9.55",
     "@types/react-native": "^0.63.30",
     "@types/react-redux": "^7.1.9",

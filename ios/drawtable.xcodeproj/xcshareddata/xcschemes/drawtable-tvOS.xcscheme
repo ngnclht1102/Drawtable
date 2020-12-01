@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "TestRNWeb-tvOS.app"
-               BlueprintName = "TestRNWeb-tvOS"
-               ReferencedContainer = "container:TestRNWeb.xcodeproj">
+               BuildableName = "drawtable-tvOS.app"
+               BlueprintName = "drawtable-tvOS"
+               ReferencedContainer = "container:drawtable.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "TestRNWeb-tvOSTests.xctest"
-               BlueprintName = "TestRNWeb-tvOSTests"
-               ReferencedContainer = "container:TestRNWeb.xcodeproj">
+               BuildableName = "drawtable-tvOSTests.xctest"
+               BlueprintName = "drawtable-tvOSTests"
+               ReferencedContainer = "container:drawtable.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "TestRNWeb-tvOS.app"
-            BlueprintName = "TestRNWeb-tvOS"
-            ReferencedContainer = "container:TestRNWeb.xcodeproj">
+            BuildableName = "drawtable-tvOS.app"
+            BlueprintName = "drawtable-tvOS"
+            ReferencedContainer = "container:drawtable.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "TestRNWeb-tvOS.app"
-            BlueprintName = "TestRNWeb-tvOS"
-            ReferencedContainer = "container:TestRNWeb.xcodeproj">
+            BuildableName = "drawtable-tvOS.app"
+            BlueprintName = "drawtable-tvOS"
+            ReferencedContainer = "container:drawtable.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

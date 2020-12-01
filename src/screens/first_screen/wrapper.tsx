@@ -7,8 +7,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as t from '@/actionTypes';
 import actions from '@/actions';
+// @ts-ignore
 import Screen from './index';
-import styles from './styles';
 
 const mapDispatchToProps = (dispatch: any) => ({
   act: bindActionCreators(actions, dispatch),

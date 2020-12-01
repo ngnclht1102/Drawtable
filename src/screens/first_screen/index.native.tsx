@@ -1,9 +1,12 @@
 import React from 'react';
+import * as t from '@/actionTypes';
+import actions from '@/actions';
 import {View, Image, StatusBar, Text} from 'react-native';
 import CodePush from 'react-native-code-push';
 import DeviceInfo from 'react-native-device-info';
 import images from '@/assets/images';
 import colors from '@/configs/colors.config';
+import Component from './index.shared';
 import styles from './styles';
 
 interface WelcomeProps {
@@ -29,20 +32,7 @@ export class Welcome extends React.PureComponent<WelcomeProps> {
     this.props.act[t.GET_APP_INFO_REQUEST]();
   }
   render() {
-    return (
-      <View style={styles.container}>
-        <StatusBar barStyle="dark-content" backgroundColor={colors.lightGray} />
-        <Text style={styles.txt}>Bin - Makes it better</Text>
-        <View style={styles.bottomView}>
-          <Text style={styles.version}>
-            {DeviceInfo.getVersion()}.
-            {this.state.label ? `${this.state.label}.` : ''}
-            {DeviceInfo.getBuildNumber()}
-          </Text>
-          {this.props.children}
-        </View>
-      </View>
-    );
+    return <Component state={this.state} />;
   }
 }
 

@@ -11,11 +11,6 @@ const getAccessToken = async () => {
     accessToken = storageAccessToken;
     return accessToken;
   }
-  const state: any = store.getState();
-  if (state.auth.access_token) {
-    accessToken = state.auth.access_token;
-    return accessToken;
-  }
   return '';
 };
 

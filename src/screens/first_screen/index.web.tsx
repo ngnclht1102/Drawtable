@@ -5,7 +5,7 @@ import images from '@/assets/images';
 import colors from '@/configs/colors.config';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as t from '@/actionTypes';
+import Component from './index.shared';
 import actions from '@/actions';
 import styles from './styles';
 
@@ -23,26 +23,7 @@ export class Welcome extends React.PureComponent<WelcomeProps> {
   componentDidMount() {}
 
   render() {
-    return (
-      <View style={styles.container}>
-        <StatusBar barStyle="dark-content" backgroundColor={colors.lightGray} />
-        <Image source={images.userDashboard2} />
-        <Image source={images.logo} style={styles.img} />
-        <Text style={styles.txt}>
-          #athoughtfullworld - {'\n'}where mental health is as aspirational as
-          physical health
-        </Text>
-        <View style={styles.bottomView}>
-          <Text style={styles.version}>
-            {DeviceInfo.getVersion()}.
-            {this.state.label ? `${this.state.label}.` : ''}
-            {DeviceInfo.getBuildNumber()}
-          </Text>
-
-          {this.props.children}
-        </View>
-      </View>
-    );
+    return <Component state={this.state} />;
   }
 }
 

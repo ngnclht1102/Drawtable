@@ -53,6 +53,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#009383',
     marginRight: rW(10),
   },
+  disabledButton: {
+    backgroundColor: 'gray',
+  },
   randomButton: {
     backgroundColor: '#009383',
   },

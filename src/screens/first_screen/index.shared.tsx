@@ -14,8 +14,8 @@ import _ from 'lodash';
 import DeviceInfo from 'react-native-device-info';
 import images from '@/assets/images';
 import colors from '@/configs/colors.config';
-import Team from './components/team';
 import styles from './styles';
+import Team from './components/team';
 
 const FirstScreenShared = () => {
   const [numberOfTables, setNumberOfTables] = useState<number>(2);
@@ -32,10 +32,32 @@ const FirstScreenShared = () => {
   >([]);
 
   const randomize = useCallback(() => {
+    const clonedTeams: any = _.clone(teams);
+    const localGroupedTeams: any = [];
     const minimumQuantityOfEachTable = teams.length / numberOfTables;
+    console.log(minimumQuantityOfEachTable);
+
     for (let i = 0; i < numberOfTables; i++) {
-      const element = array[i];
+      for (let j = 0; j < minimumQuantityOfEachTable; j++) {
+        let randomTeam = undefined;
+        while (!randomTeam && clonedTeams.length > 0) {
+          const randomInt =
+            clonedTeams.length === 1
+              ? 0
+              : Math.abs(Math.floor(Math.random() * clonedTeams.length - 1)) +
+                0;
+          randomTeam = _.clone(clonedTeams[randomInt]);
+
+          if (randomTeam) {
+            if (!localGroupedTeams[i]) localGroupedTeams[i] = [];
+            localGroupedTeams[i].push(randomTeam);
+            clonedTeams.splice(randomInt, 1);
+          }
+        }
+      }
     }
+
+    setGroupedTeams(localGroupedTeams);
   }, [teams, numberOfTables]);
 
   return (
@@ -55,18 +77,26 @@ const FirstScreenShared = () => {
             onPress={() => {
               const newteams = _.clone(teams);
               newteams.push(teamTextInputValue);
+              setGroupedTeams([]);
               setTeams(newteams);
+              setTeamTextInputValue('');
             }}
-            style={[styles.button, styles.addButton]}>
+            disabled={!teamTextInputValue}
+            style={[
+              styles.button,
+              styles.addButton,
+              !teamTextInputValue && styles.disabledButton,
+            ]}>
             <Text style={styles.addButtonText}>Add team</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => {
-              const newteams = _.clone(teams);
-              newteams.push(teamTextInputValue);
-              setTeams(newteams);
-            }}
-            style={[styles.button, styles.addButton]}>
+            onPress={randomize}
+            disabled={numberOfTables > teams.length}
+            style={[
+              styles.button,
+              styles.addButton,
+              numberOfTables > teams.length && styles.disabledButton,
+            ]}>
             <Text style={styles.addButtonText}>Random table</Text>
           </TouchableOpacity>
         </View>
@@ -96,17 +126,30 @@ const FirstScreenShared = () => {
         ) : (
           <TouchableOpacity onPress={() => setEditingNumberOfTables(true)}>
             <Text style={styles.startChangeNumberOfTablesText}>
-              Team will be devided to {`${numberOfTables}`} tables. Press here
+              Teams will be devided to {`${numberOfTables}`} tables. Press here
               to changes!
             </Text>
           </TouchableOpacity>
         )}
 
-        <FlatList
-          data={teams}
-          numColumns={2}
-          renderItem={({item, index}) => <Team key={index} name={item} />}
-        />
+        {groupedTeams && groupedTeams.length ? (
+          groupedTeams.map((teams) => (
+            <>
+              <Text style={styles.groupLabel}>Group</Text>
+              <FlatList
+                data={teams}
+                numColumns={2}
+                renderItem={({item, index}) => <Team key={index} name={item} />}
+              />
+            </>
+          ))
+        ) : (
+          <FlatList
+            data={teams}
+            numColumns={2}
+            renderItem={({item, index}) => <Team key={index} name={item} />}
+          />
+        )}
       </View>
     </SafeAreaView>
   );

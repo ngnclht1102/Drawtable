@@ -13,8 +13,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   container: {
-    padding: HOZ_SPACING,
-    // backgroundColor: colors.red,
     ...Platform.select({
       web: {
         maxWidth: 1024,
@@ -24,6 +22,21 @@ const styles = StyleSheet.create({
         flex: 1,
       },
     }),
+  },
+  withPadding: {
+    padding: HOZ_SPACING,
+  },
+  contentContainer: {},
+  groupTeams: {
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+  },
+  groupLabel: {
+    color: '#009383',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginTop: rH(25),
+    marginBottom: rH(5),
   },
   title: {
     color: '#009383',

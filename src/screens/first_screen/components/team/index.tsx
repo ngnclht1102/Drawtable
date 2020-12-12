@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {View, SafeAreaView, StatusBar, Text} from 'react-native';
+import React from 'react';
+import {View, Text} from 'react-native';
 import styles from './styles';
 
 const Team = ({name}: {name: string}) => {

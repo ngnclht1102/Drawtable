@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "./node_modules/.bin/webpack-dev-server -d --config ./web/webpack.config.js --inline --hot --colors",
+    "build-web": "webpack  --config ./web/webpack.config.js ",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
